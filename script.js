@@ -13,13 +13,13 @@
         console.log(add(a, b));
 
         //Exercici 2
-        /* const randomNumber = () => {
-            return Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+        const randomNumber = () => {
+            return Math.floor(Math.random() * (101));
         }
         let random = randomNumber();
 
         console.log(random);
-       */
+        
         //Exercici 3
         class person {
             constructor(name) {
@@ -65,14 +65,14 @@
 
         //Exercici 1
         potConduir = (edad) => {
-            let mensaje = edad <= 18 ? "No puede conducir" : "Puede conducir";
+            let mensaje = edad >= 18 ? "Puede conducir": "No puede conducir" ;
             return mensaje;
         }
-        console.log(potConduir(22));
+        console.log(potConduir(17));
 
         //Exercici 2
         comparador = (num1, num2) => {
-            let compara = num1 < num2 ? "num2 és més gran" : "num1 és més gran";
+            let compara = num1 < num2 ? `${num2} és més gran` : `${num1} és més gran`;
             return compara;
         }
         console.log(comparador(2, 5));
@@ -85,25 +85,24 @@
         console.log(pNZ);
 
         const trobarMaxim = (a, b, c) => {
-            let valorMaxim = (a < b && c < b) ? "b" : (a > b && a > c) ? "a" : (c > a && c > b) ? "c" : "Iguales";
+            let valorMaxim = (a < b && c < b) ? `${b} ` : (a > b && a > c) ? `${a} ` : (c > a && c > b) ? `${c} ` : "Iguales";
             return valorMaxim;
         }
 
-        console.log(trobarMaxim(1, 1, 1))
+        console.log(trobarMaxim(1, 5, 1))
 
         //Nivel3
 
         //Exercici4
         const parOImpar = (array) => {
-            let lista = array
             let imprimir = "";
-            for (let i = 0; i < lista.length; i++) {
-                imprimir += (lista[i] % 2 === 0) ? lista[i] + " es par" + "\n" : lista[i] + " es impar" + "\n";
+            for (let i = 0; i < array.length; i++) {
+                imprimir += (array[i] % 2 === 0) ? array[i] + " es par" + "\n" : array[i] + " es impar" + "\n";
             }
             return imprimir;
         }
 
-        console.log(parOImpar([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+        console.log(parOImpar([1, 2, 3, 4, 5, 6, 7, 8, 9]))
 
 
         //Exercici 1.3: Callbacks
@@ -168,7 +167,7 @@
         processarelements([1, 2, 3, 4, 5, 6, 7, 8, 9], laLlamada);
 
 
-        //Nivel53
+        //Nivel3
 
         //Exercici 5
 
@@ -192,14 +191,17 @@
         //Exercici 1
 
         const array1 = [1, 2, 3, 4, 5]
-        const array2 = [...array1, 6, 7, 8, 9]
-
-        console.log(array2);
+        const array2 = [6, 7, 8, 9]
+        const array3 =[...array1,...array2];
+        console.log(array3);
 
         //Exercici 2
-
         const suma = (...numeros) => {
-            return numeros.reduce((total, num) => total + num, 0);
+            let resultado = 0;
+            for(let i = 0; i < numeros.length; i++){
+                resultado += numeros[i]
+            }
+            return resultado;
         }
 
         console.log(suma(1, 2, 3, 4, 5, 6, 7, 8, 9));
@@ -272,37 +274,37 @@
 
         const arrayNum = [1, 2, 3, 4];
 
-        const nuevoArray = arrayNum.map(num => num ** 2)
+        const elevarCuadrado = arrayNum.map(num => num ** 2)
 
-        console.log(nuevoArray);
+        console.log(elevarCuadrado);
 
 
         //Excercici2 
 
         const arrayNum2 = [1, 2, 3, 4];
-        const nuevoArray2 = arrayNum2.filter((num) => {
+        const filtraPar = arrayNum2.filter((num) => {
             return num % 2 === 0;
         });
 
-        console.log(nuevoArray2);
+        console.log(filtraPar);
 
         //Excercici3
 
         const arrayNum3 = [1, 10, 8, 11];
-        const nuevoArray3 = arrayNum3.find((num) => {
+        const findNumero = arrayNum3.find((num) => {
             return num === 10;
         });
 
-        console.log(nuevoArray3);
+        console.log(findNumero);
 
         //Excercici4
 
         const arrayNum4 = [13, 7, 8, 21];
-        const nuevoArray4 = arrayNum4.reduce((anterio, actual) => {
+        const sumaArray = arrayNum4.reduce((anterio, actual) => {
             return anterio + actual;
         }, 0);
 
-        console.log(nuevoArray4);
+        console.log(sumaArray);
 
 
         //Nivel2
@@ -310,19 +312,19 @@
         //Excercici5
 
         const arrayNum5 = [1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9];
-        const nuevoArray5 = arrayNum5.filter(num => num >= 10).map(num => num * 2).reduce((anterior, actual) => anterior + actual, 0);
-        console.log(nuevoArray5);
+        const filtraElevaSuma = arrayNum5.filter(num => num >= 10).map(num => num * 2).reduce((anterior, actual) => anterior + actual, 0);
+        console.log(filtraElevaSuma);
 
         //Nivel3
 
         //Excercici6
 
         const arrayNum6 = [11, 12, 13, 14];
-        const verifArray6 = arrayNum6.every(num => num > 10);
-        const verifArray62 = arrayNum6.some(num => num > 10);
+        const igualesANum = arrayNum6.every(num => num > 10);
+        const algunNumIgual = arrayNum6.some(num => num > 10);
 
-        console.log(verifArray6);
-        console.log(verifArray62);
+        console.log(igualesANum);
+        console.log(algunNumIgual);
 
 
         //Exercici 1.6: Array loops
@@ -371,10 +373,10 @@
         const arrayNumeros5 = [1, 2, 3, 4, 5, 6];
         const verif5 = () => {
             for (num of arrayNumeros5) {
+                console.log(num);
                 if (num === 5) {
                     break;
                 }
-                console.log(num);
             }
         }
 
@@ -383,7 +385,7 @@
         //Nivel3
 
         //Exercici6 
-        const arrayNombres6 = ["Anna", "Julia", "Pedro"];
+        const arrayNombres6 = ["Anna ", "Julia ", "Pedro "];
         const imprimir6 = () => {
             for (nombre of arrayNombres6) {
                 let cadena = nombre + arrayNombres6.indexOf(nombre)
@@ -483,9 +485,6 @@
         Promise.all([promesa1,promesa2])
         .then((resultado)=>{
             console.log(resultado);
-        })
-        .catch((error)=>{
-            console.log("Error");
         });
 
 
